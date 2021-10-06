@@ -5,7 +5,7 @@
 | Nome | Matrícula |
 | - | - |
 | Leonardo Milomes Vitoriano | 20/1000379 |
-| nome | matricula |
+| Gabriel do Nascimento de Carvalho | 13/0111147 |
 | nome | matricula |
 | nome | matricula |
 | nome | matricula |
