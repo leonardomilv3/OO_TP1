@@ -9,5 +9,5 @@
 | Matheus Phillipo Silverio Silva | 15/0154348 |
 | Leonardo Michalski Miranda | 19/0046945 |
 | Renan Rodrigues Lacerda | 19/0048191 |
-| nome | matricula |
+| Vinícius Alves de Sousa | 19/0096373 |
 
