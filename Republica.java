@@ -6,7 +6,45 @@ public class Republica {
 	static Despesa[] despesas = new Despesa[0];
 
     public Morador[] cadastrarMoradores(){
-    	
+    	int opcao;
+
+		do{
+			String strOpcao = JOptionPane.showInputDialog("Adicionar morador?" + "\n" 
+														+ "1 - Sim" + "\n" 
+														+ "0 - NÃ£o" + "\n");
+			
+			opcao = Integer.parseInt(strOpcao);
+			
+			if(opcao == 1) {
+				
+				String nome = JOptionPane.showInputDialog("Nome: ");
+				String email = JOptionPane.showInputDialog("\n" + "Email: ");
+				String strRendimento = JOptionPane.showInputDialog("\n" + "Rendimento: ");
+				float rendimento = Float.parseFloat(strRendimento);
+				
+				//Criando Morador
+				Morador morador = new Morador(nome, email, rendimento);
+	
+				// inserir morador dentro do vetor moradores.
+				// Esforco bracal!
+	
+				Morador[] temp = new Morador[moradores.length + 1];
+	
+				for (int i = 0; i < moradores.length; i++) {
+	
+					temp[i] = moradores[i];
+	
+				}
+				// inserir morador em temp
+				temp[moradores.length] = morador;
+	
+				// atualizar referencia de moradores
+				moradores = temp;
+			}
+			
+		}while (opcao != 0); 
+		
+		return moradores;
     }
 
     public Despesa[] cadastrarDespesas(){
@@ -19,7 +57,7 @@ public class Republica {
 		do{
 			String strOpcao = JOptionPane.showInputDialog("Adicionar despesa?" + "\n" 
 														+ "1 - Sim" + "\n" 
-														+ "0 - Não" + "\n");
+														+ "0 - Nï¿½o" + "\n");
 			
 			opcao = Integer.parseInt(strOpcao);
 			

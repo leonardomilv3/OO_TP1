@@ -2,6 +2,10 @@ public class Teste {
     public static void main(String[] args) {
     	
     		Republica republica = new Republica();
+    		
+    		// Cadastro De Moradores
+    		ListaDeMoradores l1 = new ListaDeMoradores();
+    		l1.setListaMoradores(republica.cadastrarMoradores());
    		
     		// Cadastro De Despesas
     	    GrupoDeDespesas d1 = new GrupoDeDespesas();
