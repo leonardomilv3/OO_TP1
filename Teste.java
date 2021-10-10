@@ -32,6 +32,18 @@ public class Teste {
             ListaDeMoradores l1 = new ListaDeMoradores();
             l1.setListaMoradores(moradores);
 
+            /*  Depois de instanciarem os moradores e as despesas, então repulica é instanciada
+
+            *********************************
+             Instanciar as depesas aqui
+            *********************************
+
+            para fins de exemplo, criei uma ref de GrupoDeDespesas = null
+             */
+            //GrupoDeDespesas g1 = null;
+            
+            //Republica republica = new Republica(l1.setListaMoradores(moradores), g1, 0, moradores.length);
+
             System.out.println(Arrays.toString(l1.mostrarMoradores(moradores.length)));
             System.out.printf("%.2f %% %n",l1.calcularPorcentagemIgualitaria());
             System.out.println(l1.pesquisarMorador("Matheus"));
