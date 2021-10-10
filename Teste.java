@@ -1,36 +1,11 @@
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class Teste {
     public static void main(String[] args) {
-        int numeroDeMoradores;
-        Scanner ler = new Scanner(System.in);
-        String leitor;
-
-        System.out.println("Quantos Moradores residem? ");
-        numeroDeMoradores = ler.nextInt();
-        if(numeroDeMoradores == 0){
-            System.out.println("Não existe residentes");
-        }else{
-           Morador [] moradores = new Morador[numeroDeMoradores];
-
-            for(int i = 0; i < moradores.length; i++){
-                moradores[i] = new Morador();
-                System.out.println("Digite o nome do morador: ");
-                leitor = ler.next();
-                moradores[i].setNome(leitor);
-
-                System.out.println("Digite o email do morador: ");
-                leitor = ler.next();
-                moradores[i].setEmail(leitor);
-
-                System.out.println("Digite o rendimento do morador: ");
-                leitor = ler.next();
-                moradores[i].setTotalDeRendimento(Float.parseFloat(leitor));
-            }
-
-            ListaDeMoradores l1 = new ListaDeMoradores();
-            l1.setListaMoradores(moradores);
+    	
+    		Republica republica = new Republica();
+   		
+    		// Cadastro De Despesas
+    	    GrupoDeDespesas d1 = new GrupoDeDespesas();
+    	    d1.setGrupoDeDespesas(republica.cadastrarDespesas());
 
             /*  Depois de instanciarem os moradores e as despesas, então repulica é instanciada
 
@@ -40,13 +15,10 @@ public class Teste {
 
             para fins de exemplo, criei uma ref de GrupoDeDespesas = null
              */
-            //GrupoDeDespesas g1 = null;
-            
-            //Republica republica = new Republica(l1.setListaMoradores(moradores), g1, 0, moradores.length);
-
-            System.out.println(Arrays.toString(l1.mostrarMoradores(moradores.length)));
+            GrupoDeDespesas g1 = null;
+                        
             System.out.printf("%.2f %% %n",l1.calcularPorcentagemIgualitaria());
             System.out.println(l1.pesquisarMorador("Matheus"));
+            
         }
     }
-}

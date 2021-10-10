@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public class ListaDeMoradores {
-    private Morador [] listaMoradores;
+    private Morador[] listaMoradores;
 
     public float calcularPesos(){
 
@@ -31,8 +31,9 @@ public class ListaDeMoradores {
 
         return statusMoradores;
     }
-
+    
     public void setListaMoradores(Morador[] listaMoradores) {
         this.listaMoradores = listaMoradores;
+        
     }
 }

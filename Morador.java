@@ -1,9 +1,15 @@
 public class Morador {
     private String nome;
     private String email;
-    private float totalDeRendimento;
+    private float rendimento;
+    
+    public Morador(String nome, String email, float rendimento) {
+    	 this.nome = nome;
+         this.email = email;
+         this.rendimento = rendimento;
+	}
 
-    public String getNome() {
+	public String getNome() {
         return nome;
     }
 
@@ -20,10 +26,10 @@ public class Morador {
     }
 
     public float getTotalDeRendimento() {
-        return totalDeRendimento;
+        return rendimento;
     }
 
     public void setTotalDeRendimento(float totalDeRendimento) {
-        this.totalDeRendimento = totalDeRendimento;
+        this.rendimento = totalDeRendimento;
     }
 }
