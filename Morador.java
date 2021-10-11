@@ -25,7 +25,7 @@ public class Morador {
         this.email = email;
     }
 
-    public float getTotalDeRendimento() {
+    public float rendimento() {
         return rendimento;
     }
 

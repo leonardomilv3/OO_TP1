@@ -10,6 +10,8 @@ public class Teste {
     		// Cadastro De Despesas
     	    GrupoDeDespesas d1 = new GrupoDeDespesas();
     	    d1.setGrupoDeDespesas(republica.cadastrarDespesas());
+    	    
+    	    l1.escreveMoradoresEmArquivo("moradores.txt");
 
             /*  Depois de instanciarem os moradores e as despesas, então repulica é instanciada
 
@@ -19,7 +21,7 @@ public class Teste {
 
             para fins de exemplo, criei uma ref de GrupoDeDespesas = null
              */
-            GrupoDeDespesas g1 = null;
+
                         
             System.out.printf("%.2f %% %n",l1.calcularPorcentagemIgualitaria());
             System.out.println(l1.pesquisarMorador("Matheus"));

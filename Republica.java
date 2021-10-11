@@ -12,7 +12,7 @@ public class Republica {
 		do{
 			String strOpcao = JOptionPane.showInputDialog("Adicionar morador?" + "\n" 
 														+ "1 - Sim" + "\n" 
-														+ "0 - Não" + "\n");
+														+ "0 - Nao" + "\n");
 			
 			opcao = Integer.parseInt(strOpcao);
 			
@@ -58,7 +58,7 @@ public class Republica {
 		do{
 			String strOpcao = JOptionPane.showInputDialog("Adicionar despesa?" + "\n" 
 														+ "1 - Sim" + "\n" 
-														+ "0 - N�o" + "\n");
+														+ "0 - Nao" + "\n");
 			
 			opcao = Integer.parseInt(strOpcao);
 			

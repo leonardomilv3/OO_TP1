@@ -20,20 +20,43 @@ public class ListaDeMoradores {
                 return listaMoradore.getNome() + " mora aqui";
             }
         }
-        return "Não Existe esse morador";
+        return "Nao Existe esse morador";
     }
 
     public String[] mostrarMoradores(int index) {
         String [] statusMoradores = new String[index];
         for (int i = 0; i < listaMoradores.length; i++){
-            statusMoradores[i] = listaMoradores[i].getNome() + " " + listaMoradores[i].getEmail() + " " + listaMoradores[i].getTotalDeRendimento();
+            statusMoradores[i] = listaMoradores[i].getNome() + " " + listaMoradores[i].getEmail() + " " + listaMoradores[i].rendimento();
         }
 
         return statusMoradores;
     }
     
+    public Morador[] getListaMoradores() {
+        return this.listaMoradores;
+    }
+    
     public void setListaMoradores(Morador[] listaMoradores) {
         this.listaMoradores = listaMoradores;
-        
+    }
+    
+    public void escreveMoradoresEmArquivo(String caminho) {
+    	
+    	String arquivo = caminho;
+    	String texto = null;
+    	
+    	for (int i = 0; i < listaMoradores.length; i++) {
+			
+			texto += listaMoradores[i].getNome() + ";" +
+					 listaMoradores[i].getEmail() + ";" +
+					 listaMoradores[i].rendimento() + "\r\n";
+		}
+    	
+    	if(Arquivo.Escreve(arquivo, texto)) {
+    		System.out.println("Lista de moradores salva em .txt");
+    	}else {
+    		System.out.println("Erro ao salvar lista de moradores em .txt");
+    	}
+    	
     }
 }
