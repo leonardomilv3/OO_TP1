@@ -4,6 +4,7 @@ public class Republica {
 	
 	static Morador[] moradores = new Morador[0];
 	static Despesa[] despesas = new Despesa[0];
+	private int numDeOcupantes;
 
     public Morador[] cadastrarMoradores(){
     	int opcao;
@@ -106,4 +107,12 @@ public class Republica {
     public void excluirDespesa(Despesa despesa){
 
     }
+
+	public void setNumDeOcupantes(int numDeOcupantes){
+		this.numDeOcupantes = numDeOcupantes;
+	}
+
+	public int getNumDeOcupantes(){
+		return numDeOcupantes;
+	}
 }
