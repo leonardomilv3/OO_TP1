@@ -1,4 +1,4 @@
 public class CategoriaDespesa {
     ListaSubcategoriaDespesas[] SubcategoriaDespesas;
-    String Categoria;
+    private String Categoria;
 }
