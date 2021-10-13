@@ -13,7 +13,7 @@ public class CadastroMoradores implements Impressora {
 
     private float rendimentoTotal() {
         float rendimentoTotal = 0;
-        return rendimentoTotal; /// Valor aleatorio para tirar aviso de erro, nao esquecer de mudar
+        return rendimentoTotal;
     }
 
     public float getRendimentoTota() {
