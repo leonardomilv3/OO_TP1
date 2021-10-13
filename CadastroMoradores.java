@@ -1,10 +1,9 @@
 package SGR;
 
 public class CadastroMoradores  implements Impressora {
-    private Morador[] moradores;
-
-    @Override
-    public void cadastrar(){
+    
+    
+    public void cadastrarMoradores(Morador[] moradores){
 
     }
 
