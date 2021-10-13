@@ -29,7 +29,7 @@ public class Morador {
         return rendimento;
     }
 
-    public void setTotalDeRendimento(float totalDeRendimento) {
-        this.rendimento = totalDeRendimento;
+    public void setRendimento(float rendimento) {
+        this.rendimento = rendimento;
     }
 }
