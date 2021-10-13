@@ -1,7 +1,8 @@
 public class CadastroMoradores  implements Impressora{
     private Morador [] moradores;
 
-    public void cadastrarMoradores(){
+    @Override
+    public void cadastrar(){
         
     }
 
