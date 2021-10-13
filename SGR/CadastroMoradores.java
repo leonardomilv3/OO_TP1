@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:SGR/CadastroMoradores.java
 package SGR;
 
 public class CadastroMoradores  implements Impressora {
@@ -26,3 +27,27 @@ public class CadastroMoradores  implements Impressora {
     }
 
 }
+=======
+package SGR;
+
+public class CadastroMoradores implements Impressora {
+
+    public void cadastrarMoradores() {
+    }
+
+    public float rendimentoTotal() {
+        float rendimentoTotal = 0;
+        return rendimentoTotal;
+    }
+
+    public float getRendimentoTota() {
+        return rendimentoTotal();
+    }
+
+    @Override
+    public boolean escreveTxt(String caminho) {
+        boolean escreveu;
+        return escreveu;
+    }
+}
+>>>>>>> Stashed changes:CadastroMoradores.java
