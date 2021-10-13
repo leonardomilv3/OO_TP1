@@ -3,7 +3,7 @@ package SGR;
 public class Morador {
     private String nome;
     private String email;
-    private float totalDeRendimento;
+    private float rendimento;
 
     public String getNome() {
         return nome;
@@ -25,7 +25,7 @@ public class Morador {
         return totalDeRendimento;
     }
 
-    public void setTotalDeRendimento(float totalDeRendimento) {
-        this.totalDeRendimento = totalDeRendimento;
+    public void setRendimento(float rendimento) {
+        this.rendimento = rendimento;
     }
 }
