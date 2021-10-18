@@ -1,0 +1,38 @@
+Pontos positivos: 
+
++ Projeto dividido em pacotes, apesar dos pacotes não estarem presentes na
+organização do código (apenas no modelo UML). 
++ Uso de modificadores de escopo adequado.
++ Uso de interface, apesar de não apresentar os métodos que compõem a interface
+"Impressora". 
+
+
+
+
+Pontos negativos: 
+
+- Uso de composição, tipo de relação que não foi apresentada na disciplina,
+  quando uma associação direcional resolveria o problema. (-10%)
+- Despesa como subtipo de Boleto? Não é o caso... Despesa não "é um tipo de"
+  boleto. (-10%)
+
+
+
+
+
+Dúvidas: 
+
+
+
+
+Comentários: 
+
+O trabalho está muito bem encaminhado e organizado. Parabéns ao grupo pelo
+resultado apresentado. Sugiro a utilização de herança para realização dos
+diferentes tipos de cálculos de divisão de despesas. 
+
+
+
+
+Nota: 
+80/100 pontos.
