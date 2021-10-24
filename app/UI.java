@@ -36,6 +36,7 @@ public class UI {
 			switch (opcao) {
 			case 1:
 				cadastroMoradores.cadastrarMoradores();
+				cadastroMoradores.escreveAlunos(); //Adicionando novo morador ao arquivo "aluno.txt"
 				break;
 			case 2: 
  				cadastroDespesas.cadastrarDespesas();
