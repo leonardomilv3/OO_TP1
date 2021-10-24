@@ -64,10 +64,11 @@ public class CadastroMoradores implements Impressora {
 
             		for (Morador a : moradores) {
                 		buffer.write(a.getNome().toString());
-                		buffer.write(';');
+				buffer.write(';');
 				buffer.write(a.getEmail().toString());
 				buffer.write(';');
-				buffer.write(a.getRendimentos().toString());
+				String r = Float.toString(a.getRendimento());
+				buffer.write(r.toString());
 				buffer.write('\n');
         		}
 			
