@@ -14,6 +14,7 @@ public class UI {
         ApresentarMenu();
 		// apenas um teste
 		JOptionPane.showMessageDialog(null, "Rendimento total: " + cadastroMoradores.getRendimentoTota());
+		JOptionPane.showMessageDialog(null, "Rendimento total: " + eq.calcularContribuicao(1800,cadastroMoradores.getNumeroMoradores())); // Teste do metodo calcular contribuicao ** 
     }
 
     private static int escolhaOpcao(){
