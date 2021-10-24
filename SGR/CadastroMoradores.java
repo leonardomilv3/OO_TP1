@@ -3,6 +3,9 @@ package SGR;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
