@@ -1,22 +1,9 @@
 package SGR;
 
-public class Contribuicao {
-	
-	public String calcularContribuicao() {
-		String string = null;
-		return string;
-	}
-	
-	public String igualitaria() {
-		String string = null;
-		return string;
-	}
-	
-	public String proporcional() {
-		String string = null;
-		return string;
-	}
-	
-	
+public abstract class Contribuicao {
+	static CadastroMoradores cadastroMoradores = new CadastroMoradores();
+	static CadastroDespesas cadastroDespesas = new CadastroDespesas();
 
+	public abstract String calcularContribuicao(float valorTotal, int numeroMoradores);
+	
 }
