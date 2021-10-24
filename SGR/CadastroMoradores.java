@@ -9,13 +9,15 @@ import javax.swing.JOptionPane;
 public class CadastroMoradores implements Impressora {
 
 	private List<Morador> moradores;
+	String nomeArquivo = "alunos.txt";
 
 	public CadastroMoradores() {
 		// Usando o construtor para instanciar a lista encadeada
 		// Foi a solucao que encontrei momentanemente
 		moradores = new LinkedList<Morador>();
 	}
-
+	
+	
 	public void cadastrarMoradores() {
 
 		String nome = JOptionPane.showInputDialog("Nome: ");
@@ -46,11 +48,31 @@ public class CadastroMoradores implements Impressora {
 	public float getRendimentoTota() {
 		return rendimentoTotal();
 	}
+	
+	//Gravando moradores em arquivo "alunos.txt"
+	public void escreveAlunos(){
+		
+		BufferedWriter buffer = null;
+        	FileWriter out = null;
+		
+		try {
+           		out = new FileWriter(nomeArquivo);
+            		buffer = new BufferedWriter(out);
 
-	@Override
-	public boolean escreveTxt(String caminho) {
-		boolean escreveu = true;
-		return escreveu;
+            		for (Morador a : moradores) {
+                		buffer.write(a.getNome().toString());
+                		buffer.write(';');
+				buffer.write(a.getEmail().toString());
+				buffer.write(';');
+				buffer.write(a.getRendimentos().toString());
+				buffer.write('\n');
+        		}
+			
+			buffer.close();
+       		} catch (IOException e) {
+           		// TODO: handle exception
+        	}	
+		
 	}
 
 }
