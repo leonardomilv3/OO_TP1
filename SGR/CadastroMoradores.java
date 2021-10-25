@@ -48,7 +48,7 @@ public class CadastroMoradores implements Impressora {
 		return rendimentoTotal;
 	}
 
-	public float getRendimentoTota() {
+	public float getRendimentoTotal() {
 		return rendimentoTotal();
 	}
 	
@@ -81,6 +81,13 @@ public class CadastroMoradores implements Impressora {
            		// TODO: handle exception
         	}	
 		
+	}
+
+
+	@Override
+	public boolean escreveTxt(String caminho) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
