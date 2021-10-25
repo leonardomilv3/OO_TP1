@@ -52,6 +52,10 @@ public class CadastroMoradores implements Impressora {
 		return rendimentoTotal();
 	}
 	
+	public int getNumeroMoradores(){
+        	return  this.moradores.size();
+    	}
+	
 	//Gravando moradores em arquivo "alunos.txt"
 	public void escreveAlunos(){
 		
