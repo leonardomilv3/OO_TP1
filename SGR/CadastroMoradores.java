@@ -1,5 +1,8 @@
 package SGR;
 
+import Exceptions.DadosPessoaisIncompletosException;
+import Exceptions.RendimentoInvalidoException;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,11 +25,39 @@ public class CadastroMoradores implements Impressora {
 	
 	
 	public void cadastrarMoradores() {
+		boolean repetir = false;
+		String nome = null, email=null, strRendimento;
+		float rendimento = 0;
+		do{
+			try{
+				nome = JOptionPane.showInputDialog("Nome: ");
+				email = JOptionPane.showInputDialog("\n" + "Email: ");
+				strRendimento = JOptionPane.showInputDialog("\n" + "Rendimento: ");
+				
+				if(!strRendimento.isEmpty()){
+					rendimento = Float.parseFloat(strRendimento);
+				}
 
-		String nome = JOptionPane.showInputDialog("Nome: ");
-		String email = JOptionPane.showInputDialog("\n" + "Email: ");
-		String strRendimento = JOptionPane.showInputDialog("\n" + "Rendimento: ");
-		float rendimento = Float.parseFloat(strRendimento);
+				if(nome.isEmpty() || email.isEmpty() || strRendimento.isEmpty() ){
+					throw new DadosPessoaisIncompletosException();
+				} else if(rendimento<0){
+					throw new RendimentoInvalidoException();
+				} 
+
+			}catch(DadosPessoaisIncompletosException e){
+				repetir = true;
+				JOptionPane.showMessageDialog(null, "ERRO! Por favor preencha todos os campos");
+			}catch(RendimentoInvalidoException e){
+				do{
+					JOptionPane.showMessageDialog(null, "ERRO! Não é possível um rendimento negativo ou vazio!");
+					strRendimento = JOptionPane.showInputDialog("\n" + "Rendimento: ");
+					if(!strRendimento.isEmpty()){
+						rendimento = Float.parseFloat(strRendimento);
+					}
+				}while(rendimento<0 || strRendimento.isEmpty());
+				repetir=false;
+			}
+		}while(repetir);
 
 		// Instanciando Morador
 		Morador morador = new Morador(nome, email, rendimento);
