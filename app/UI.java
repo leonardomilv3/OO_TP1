@@ -9,12 +9,13 @@ public class UI {
 
 	static CadastroMoradores cadastroMoradores = new CadastroMoradores();
 	static CadastroDespesas cadastroDespesas = new CadastroDespesas();
+	static Igualitaria contIgual = new Igualitaria();
 	public static void main(String[] args) {
 
         ApresentarMenu();
 		// apenas um teste
 		JOptionPane.showMessageDialog(null, "Rendimento total: " + cadastroMoradores.getRendimentoTota());
-		JOptionPane.showMessageDialog(null, "Rendimento total: " + eq.calcularContribuicao(1800,cadastroMoradores.getNumeroMoradores())); // Teste do metodo calcular contribuicao ** 
+		JOptionPane.showMessageDialog(null,  contIgual.calcularContribuicao(cadastroMoradores, cadastroDespesas)); // Teste do metodo calcular contribuicao ** 
     }
 
     private static int escolhaOpcao(){
