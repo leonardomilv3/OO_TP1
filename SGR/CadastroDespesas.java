@@ -6,15 +6,17 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import Exceptions.DadosPessoaisIncompletosException;
-import Exceptions.RendimentoInvalidoException;
+import Exceptions.CategoriaNaoInformadaException;
+import Exceptions.DescricaoNaoInformadaException;
+import Exceptions.ValorNaoInformadoException;
+
 
 public class CadastroDespesas implements Impressora {
 
 	private List<Despesa> despesas;
 	protected String mes;
 	protected String ano;
-	String nomeArquivo = null;
+	protected String nomeArquivo = null;
 
 	public CadastroDespesas() {
 		// Usando o construtor para instanciar a lista encadeada
@@ -23,47 +25,89 @@ public class CadastroDespesas implements Impressora {
 	}
 
 	public void cadastrarDespesas() {
-		boolean repetir = false;
-		String descricao = null, categoria = null, strValor;
+		String descricao = null;
+		String categoria = null;
+		String strValor = null;
 		float valor = 0;
-		do {
+		
 			try {
-				mes = JOptionPane.showInputDialog("Mes: ");
-				ano = JOptionPane.showInputDialog("Ano: ");
-				descricao = JOptionPane.showInputDialog("Descricao: ");
-				strValor = JOptionPane.showInputDialog("\n" + "Valor: ");
-				categoria = JOptionPane.showInputDialog("\n" + "Categoria: ");
+				mes = JOptionPane.showInputDialog("Mes: " + "\n");
+				ano = JOptionPane.showInputDialog("Ano: " + "\n");
+				descricao = JOptionPane.showInputDialog("Descricao: " + "\n");
+				strValor = JOptionPane.showInputDialog("Valor: " + "\n");
+				categoria = JOptionPane.showInputDialog("Categoria: " + "\n");
 
 				nomeArquivo = "despesas" + "_" + mes + "_" + ano + ".txt";
 
-				if (!strValor.isEmpty()) {
+				if (strValor.isEmpty()) {
+					throw new ValorNaoInformadoException();
+				} else {
 					valor = Float.parseFloat(strValor);
 				}
 
-				if (descricao.isEmpty() || categoria.isEmpty() || strValor.isEmpty()) {
-					throw new DadosPessoaisIncompletosException();
-				} else if (valor < 0) {
-					throw new RendimentoInvalidoException();
+				if (descricao.isEmpty()) {
+					throw new DescricaoNaoInformadaException();
 				}
 
-			} catch (DadosPessoaisIncompletosException e) {
-				repetir = true;
-				JOptionPane.showMessageDialog(null, "ERRO! Por favor preencha todos os campos");
-			} catch (RendimentoInvalidoException e) {
+				if (categoria.isEmpty()) {
+					throw new CategoriaNaoInformadaException();
+				}
+
+			} catch (CategoriaNaoInformadaException e) {
+				String msg = "ERRO! Categoria da despesa não informada \n";
+
+				JOptionPane.showMessageDialog(null, msg);
+				e.printStackTrace();
+
 				do {
-					JOptionPane.showMessageDialog(null, "ERRO! NÃ£o Ã© possÃ­vel um rendimento negativo ou vazio!");
-					strValor = JOptionPane.showInputDialog("\n" + "Valor: ");
-					if (!strValor.isEmpty()) {
+					descricao = JOptionPane.showInputDialog("Categoria: " + "\n");
+
+					if (descricao.isEmpty()) {
+						JOptionPane.showMessageDialog(null, msg);
+						e.printStackTrace();
+					}
+				} while (categoria.isEmpty());
+
+			} catch (DescricaoNaoInformadaException e) {
+				
+				String msg = "ERRO! Descrição da despesa não informada \n";
+
+				JOptionPane.showMessageDialog(null, msg);
+				e.printStackTrace();
+
+				do {
+					descricao = JOptionPane.showInputDialog("Descricao: " + "\n");
+
+					if (descricao.isEmpty()) {
+						JOptionPane.showMessageDialog(null, msg);
+						e.printStackTrace();
+					}
+				} while (descricao.isEmpty());
+
+				
+			} catch (ValorNaoInformadoException e) {
+				
+				String msg = "ERRO! Valor da despesa não informado \n";
+				
+				JOptionPane.showMessageDialog(null, msg);
+				e.printStackTrace();
+
+				do {
+					strValor = JOptionPane.showInputDialog("Valor: " + "\n");
+
+					if (strValor.isEmpty()) {
+						JOptionPane.showMessageDialog(null, msg);
+						e.printStackTrace();
+
+					} else {
 						valor = Float.parseFloat(strValor);
 					}
-				} while (valor < 0 || strValor.isEmpty());
-				repetir = false;
+
+				} while (strValor.isEmpty());
 			}
-		} while (repetir);
 
 		// Instanciando Morador
 		Despesa despesa = new Despesa(descricao, valor, categoria);
-
 		despesas.add(despesa); // adicionado o nova despesa
 	}
 
