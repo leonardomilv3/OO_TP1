@@ -38,8 +38,9 @@ public class UI {
 			opcao = escolhaOpcao();
 			switch (opcao) {
 			case 1:
+				cadastroMoradores.lerMoradores(); //Ler arquivo com dados de moradores antes de efetuar novo cadastro
 				cadastroMoradores.cadastrarMoradores();
-				cadastroMoradores.escreveAlunos(); //Adicionando novo morador ao arquivo "aluno.txt"
+				cadastroMoradores.escreveMoradores(); //Adicionando novo morador ao arquivo "aluno.txt"
 				break;
 			case 2: 
  				// cadastroDespesas.cadastrarCategoria();
