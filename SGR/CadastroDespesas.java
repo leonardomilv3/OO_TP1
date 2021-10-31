@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import Exceptions.CategoriaNaoInformadaException;
 import Exceptions.DescricaoNaoInformadaException;
 import Exceptions.ValorNaoInformadoException;
-
+import Exceptions.ValorNegativoException;
 
 public class CadastroDespesas implements Impressora {
 
@@ -25,19 +25,61 @@ public class CadastroDespesas implements Impressora {
 	}
 
 	public void cadastrarDespesas() {
+		Boolean repetir = false;
 		String descricao = null;
 		String categoria = null;
 		String strValor = null;
 		float valor = 0;
-		
+
+		mes = JOptionPane.showInputDialog("Mes: " + "\n");
+		ano = JOptionPane.showInputDialog("Ano: " + "\n");
+		nomeArquivo = "despesas" + "_" + mes + "_" + ano + ".txt";
+
+		do {
+			repetir = false;
+
 			try {
-				mes = JOptionPane.showInputDialog("Mes: " + "\n");
-				ano = JOptionPane.showInputDialog("Ano: " + "\n");
 				descricao = JOptionPane.showInputDialog("Descricao: " + "\n");
-				strValor = JOptionPane.showInputDialog("Valor: " + "\n");
+
+				if (descricao.isEmpty()) {
+					throw new DescricaoNaoInformadaException();
+				}
+
+			} catch (DescricaoNaoInformadaException e) {
+				repetir = true;
+
+				String msg = "ERRO! Descrição da despesa não informada \n";
+
+				JOptionPane.showMessageDialog(null, msg);
+				e.printStackTrace();
+
+			}
+		} while (repetir);
+
+		do {
+			repetir = false;
+			try {
 				categoria = JOptionPane.showInputDialog("Categoria: " + "\n");
 
-				nomeArquivo = "despesas" + "_" + mes + "_" + ano + ".txt";
+				if (categoria.isEmpty()) {
+					throw new CategoriaNaoInformadaException();
+				}
+
+			} catch (CategoriaNaoInformadaException e) {
+				repetir = true;
+				
+				String msg = "ERRO! Categoria da despesa não informada \n";
+
+				JOptionPane.showMessageDialog(null, msg);
+				e.printStackTrace();
+			}
+
+		} while (repetir);
+
+		do {
+			repetir = false;
+			try {
+				strValor = JOptionPane.showInputDialog("Valor: " + "\n");
 
 				if (strValor.isEmpty()) {
 					throw new ValorNaoInformadoException();
@@ -45,66 +87,27 @@ public class CadastroDespesas implements Impressora {
 					valor = Float.parseFloat(strValor);
 				}
 
-				if (descricao.isEmpty()) {
-					throw new DescricaoNaoInformadaException();
+				if (valor < 0) {
+					throw new ValorNegativoException();
 				}
 
-				if (categoria.isEmpty()) {
-					throw new CategoriaNaoInformadaException();
-				}
-
-			} catch (CategoriaNaoInformadaException e) {
-				String msg = "ERRO! Categoria da despesa não informada \n";
-
-				JOptionPane.showMessageDialog(null, msg);
-				e.printStackTrace();
-
-				do {
-					descricao = JOptionPane.showInputDialog("Categoria: " + "\n");
-
-					if (descricao.isEmpty()) {
-						JOptionPane.showMessageDialog(null, msg);
-						e.printStackTrace();
-					}
-				} while (categoria.isEmpty());
-
-			} catch (DescricaoNaoInformadaException e) {
-				
-				String msg = "ERRO! Descrição da despesa não informada \n";
-
-				JOptionPane.showMessageDialog(null, msg);
-				e.printStackTrace();
-
-				do {
-					descricao = JOptionPane.showInputDialog("Descricao: " + "\n");
-
-					if (descricao.isEmpty()) {
-						JOptionPane.showMessageDialog(null, msg);
-						e.printStackTrace();
-					}
-				} while (descricao.isEmpty());
-
-				
 			} catch (ValorNaoInformadoException e) {
-				
+				repetir = true;
+
 				String msg = "ERRO! Valor da despesa não informado \n";
-				
+
 				JOptionPane.showMessageDialog(null, msg);
 				e.printStackTrace();
 
-				do {
-					strValor = JOptionPane.showInputDialog("Valor: " + "\n");
+			} catch (ValorNegativoException e) {
+				repetir = true;
 
-					if (strValor.isEmpty()) {
-						JOptionPane.showMessageDialog(null, msg);
-						e.printStackTrace();
+				String msg = "ERRO! Valor da despesa negativo \n";
 
-					} else {
-						valor = Float.parseFloat(strValor);
-					}
-
-				} while (strValor.isEmpty());
+				JOptionPane.showMessageDialog(null, msg);
+				e.printStackTrace();
 			}
+		} while (repetir);
 
 		// Instanciando Morador
 		Despesa despesa = new Despesa(descricao, valor, categoria);
