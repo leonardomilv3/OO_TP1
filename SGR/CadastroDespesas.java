@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import Exceptions.CategoriaNaoInformadaException;
+import Exceptions.DataInvalidoException;
 import Exceptions.DescricaoNaoInformadaException;
 import Exceptions.ValorNaoInformadoException;
 import Exceptions.ValorNegativoException;
@@ -14,8 +15,8 @@ import Exceptions.ValorNegativoException;
 public class CadastroDespesas implements Impressora {
 
 	private List<Despesa> despesas;
-	protected String mes;
-	protected String ano;
+	protected int mes;
+	protected String strAno;
 	protected String nomeArquivo = null;
 
 	public CadastroDespesas() {
@@ -29,11 +30,43 @@ public class CadastroDespesas implements Impressora {
 		String descricao = null;
 		String categoria = null;
 		String strValor = null;
+		String strMes = null;
 		float valor = 0;
 
-		mes = JOptionPane.showInputDialog("Mes: " + "\n");
-		ano = JOptionPane.showInputDialog("Ano: " + "\n");
-		nomeArquivo = "despesas" + "_" + mes + "_" + ano + ".txt";
+		do {
+			repetir = false;
+
+			try {
+				strMes = JOptionPane.showInputDialog("Mes: " + "\n");
+
+				if (strMes.isEmpty()) {
+					throw new DataInvalidoException();
+				} else {
+					mes = Integer.parseInt(strMes);
+				}
+				
+				if (mes < 0 || mes > 12) {
+					throw new DataInvalidoException();					
+				}
+				
+				strAno = JOptionPane.showInputDialog("Ano: " + "\n");
+				
+				if (strAno.isEmpty()) {
+					throw new DataInvalidoException();
+				}
+
+			} catch (DataInvalidoException e) {
+				repetir = true;
+
+				String msg = "ERRO! Data inválida \n";
+
+				JOptionPane.showMessageDialog(null, msg);
+				e.printStackTrace();
+
+			}
+		} while (repetir);
+		
+		nomeArquivo = "despesas" + "_" + mes + "_" + strAno + ".txt";
 
 		do {
 			repetir = false;
@@ -58,6 +91,7 @@ public class CadastroDespesas implements Impressora {
 
 		do {
 			repetir = false;
+
 			try {
 				categoria = JOptionPane.showInputDialog("Categoria: " + "\n");
 
@@ -67,7 +101,7 @@ public class CadastroDespesas implements Impressora {
 
 			} catch (CategoriaNaoInformadaException e) {
 				repetir = true;
-				
+
 				String msg = "ERRO! Categoria da despesa não informada \n";
 
 				JOptionPane.showMessageDialog(null, msg);
@@ -78,6 +112,7 @@ public class CadastroDespesas implements Impressora {
 
 		do {
 			repetir = false;
+
 			try {
 				strValor = JOptionPane.showInputDialog("Valor: " + "\n");
 
@@ -159,20 +194,20 @@ public class CadastroDespesas implements Impressora {
 		return valorTotal();
 	}
 
-	public String getMes() {
+	public Integer getMes() {
 		return mes;
 	}
 
-	public void setMes(String mes) {
+	public void setMes(Integer mes) {
 		this.mes = mes;
 	}
 
 	public String getAno() {
-		return ano;
+		return strAno;
 	}
 
 	public void setAno(String ano) {
-		this.ano = ano;
+		this.strAno = ano;
 	}
 
 	@Override
