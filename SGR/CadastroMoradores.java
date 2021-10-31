@@ -8,13 +8,16 @@ import java.util.List;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
+
 
 import javax.swing.JOptionPane;
 
 public class CadastroMoradores implements Impressora {
 
 	private List<Morador> moradores;
-	String nomeArquivo = "alunos.txt";
+	String nomeArquivo = "Moradores.txt";
 
 	public CadastroMoradores() {
 		// Usando o construtor para instanciar a lista encadeada
@@ -85,8 +88,8 @@ public class CadastroMoradores implements Impressora {
 		return this.moradores.size();
 	}
 
-	// Gravando moradores em arquivo "alunos.txt"
-	public void escreveAlunos() {
+	// Gravando moradores em arquivo "Moradores.txt"
+	public void escreveMoradores() {
 
 		BufferedWriter buffer = null;
 		FileWriter out = null;
@@ -111,6 +114,37 @@ public class CadastroMoradores implements Impressora {
 		}
 
 	}
+	
+	//Lê arquivo com dados de moradores (Persistir dados)
+	public void lerMoradores() {
+        FileInputStream in = null;  //objeto que "lida" com o arquivo de entrada
+
+        try {
+
+            in = new FileInputStream(nomeArquivo); //tenta abrir o arquivo em modo leitura
+            moradores.clear(); //Limpa buffer para evitar duplo cadastro no arquivo
+
+            byte[] conteudoArquivo = in.readAllBytes();
+            //Transformar o vetor em uma String!
+
+            String cadastro = "";
+            for (int i=0; i<conteudoArquivo.length; i++) {
+                cadastro += (char)conteudoArquivo[i];
+            }
+
+            String[] strMoradores = cadastro.split("\n");
+            for (String par : strMoradores) {
+                String[] str = par.split(";");
+                float f = Float.parseFloat(str[2]);
+                Morador a = new Morador(str[0], str[1],f);
+                moradores.add(a);
+            }
+        } catch (IOException e) {
+            // TODO: handle exception
+        }
+    }
+	
+	
 
 	@Override
 	public boolean escreveTxt(String caminho) {
