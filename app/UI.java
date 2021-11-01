@@ -47,14 +47,13 @@ public class UI {
 				cadastroMoradores.escreve(); //Adicionando novo morador ao arquivo "aluno.txt"
 				break;
 			case 2: 
- 				// cadastroDespesas.cadastrarCategoria();
+ 				cadastroDespesas.cadastrarCategoria();
 				break;
 			case 3: 
-                //  cadastroDespesas.cadastrarSubcategoria();
+                cadastroDespesas.cadastrarSubcategoria();
 				break;
 			case 4:
-				cadastroDespesas.cadastrarDespesas();
-				cadastroDespesas.escreve();
+				cadastroDespesas.cadastrarDespesa();
 				break;
 			case 5:
 				ApresentarMenuContribuicao();
