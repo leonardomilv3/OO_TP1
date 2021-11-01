@@ -11,6 +11,7 @@ public class UI {
 	static CadastroMoradores cadastroMoradores = new CadastroMoradores();
 	static CadastroDespesas cadastroDespesas = new CadastroDespesas();
 	static Igualitaria contIgual = new Igualitaria();
+	static Proporcional contProp = new Proporcional();
 
 	public static void main(String[] args) {
 
@@ -85,7 +86,9 @@ public class UI {
 				JOptionPane.showMessageDialog(null,  contIgual.calcularContribuicao(cadastroMoradores, cadastroDespesas)); // Teste do metodo calcular contribuicao ** 
 				break;
 			case 2: 
- 				// cadastroDespesas.cadastrarCategoria();
+ 				JOptionPane.showMessageDialog(null, "Rendimento total: " + cadastroMoradores.getRendimentoTotal());
+				JOptionPane.showMessageDialog(null,  contProp.calcularContribuicao(cadastroMoradores, cadastroDespesas));
+				// cadastroDespesas.cadastrarCategoria();
 				break;
 			case 0:
 				break;
