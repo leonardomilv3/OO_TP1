@@ -9,7 +9,7 @@ public class Proporcional extends Contribuicao{
 
         for(int i = 0 ; i < moradores.getNumeroMoradores(); i++){
             Morador morador = moradores.getMoradores().get(i);
-            resultado += morador.getNome() + " contribui " + "R$ " +  arredondar(k * morador.getRendimento()) + ", sendo  " + arredondar((morador.getRendimento()/moradores.getRendimentoTotal()) * 100) + "%" + " de sua renda" + "\n";
+            resultado += morador.getNome() + " contribui " + "R$ " +  arredondar(k * morador.getRendimento()) + ", sendo  " + arredondar((morador.getRendimento()/moradores.getRendimentoTotal()) * 100) + "%" + " do total de despesas" + "\n";
         }
 
         return resultado;
