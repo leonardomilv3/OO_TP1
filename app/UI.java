@@ -88,11 +88,9 @@ public class UI {
 			opcao = escolhaOpcaoContribuicao();
 			switch (opcao) {
 			case 1:
-				JOptionPane.showMessageDialog(null, "Rendimento total: " + cadastroMoradores.getRendimentoTotal());
 				JOptionPane.showMessageDialog(null,  contIgual.calcularContribuicao(cadastroMoradores, cadastroDespesas)); // Teste do metodo calcular contribuicao ** 
 				break;
 			case 2: 
- 				JOptionPane.showMessageDialog(null, "Rendimento total: " + cadastroMoradores.getRendimentoTotal());
 				JOptionPane.showMessageDialog(null,  contProp.calcularContribuicao(cadastroMoradores, cadastroDespesas));
 				// cadastroDespesas.cadastrarCategoria();
 				break;

@@ -8,7 +8,6 @@ import java.util.List;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import javax.swing.*;
 import java.io.*;
 
 
@@ -29,8 +28,11 @@ public class CadastroMoradores implements Impressora {
 		boolean repetir = false;
 		String nome = null, email = null, strRendimento;
 		float rendimento = 0;
+		
 		do {
 			try {
+				repetir = false;
+				
 				nome = JOptionPane.showInputDialog("Nome: ");
 				email = JOptionPane.showInputDialog("\n" + "Email: ");
 				strRendimento = JOptionPane.showInputDialog("\n" + "Rendimento: ");
