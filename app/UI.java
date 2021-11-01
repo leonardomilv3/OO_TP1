@@ -96,7 +96,7 @@ public class UI {
 				String StropcaoMes = JOptionPane.showInputDialog(dataMes);
 				int OpcMes = Integer.parseInt(StropcaoMes);
 				String StropcaoAno = JOptionPane.showInputDialog(dataAno);
-
+				cadastroDespesas.despesas.clear();
 				cadastroDespesas.lerDespesas(OpcMes,StropcaoAno);
 					
 				JOptionPane.showMessageDialog(null,  contIgual.calcularContribuicao(cadastroMoradores, cadastroDespesas)); // Teste do metodo calcular contribuicao ** 
@@ -105,7 +105,7 @@ public class UI {
 				String StropcaoMes2 = JOptionPane.showInputDialog(dataMes);
 				int OpcMes2 = Integer.parseInt(StropcaoMes2);
 				String StropcaoAno2 = JOptionPane.showInputDialog(dataAno);
-
+				cadastroDespesas.despesas.clear();
 				cadastroDespesas.lerDespesas(OpcMes2,StropcaoAno2);
 					
 				JOptionPane.showMessageDialog(null,  contProp.calcularContribuicao(cadastroMoradores, cadastroDespesas));
