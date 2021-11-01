@@ -28,8 +28,8 @@ public class UI {
 					+ "3 - Cadastrar Subcategoria\n"
 					+ "4 - Cadastrar Despesa\n"
 					+ "5 - Cálculo da Contribuição\n"
-					+ "0 - Sair do programa"
-					+ "6 - Apagar Republica";
+					+ "0 - Sair do programa\n"
+					+ "6 - Apagar Republica\n";
 	   
 		String Stropcao = JOptionPane.showInputDialog(menu);
 		opcao = Integer.parseInt(Stropcao);
