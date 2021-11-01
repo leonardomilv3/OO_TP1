@@ -202,6 +202,7 @@ public class CadastroDespesas implements Impressora {
 
 
 		String fileName = "despesas_"+ auxMes +"_"+this.strAno+".txt";
+		lerDespesas(this.mes,this.strAno);
 
 
 		BufferedWriter buffer = null;
@@ -224,6 +225,80 @@ public class CadastroDespesas implements Impressora {
 			// TODO: handle exception
 		}
 	}
+	
+	public void lerDespesas(int mes, String ano) {
+
+		this.mes = mes;
+		this.strAno = ano;
+		String auxMes = null;
+
+		if(this.mes == 1 ){
+			auxMes = "Jan";
+		}
+		else if (this.mes == 2 ) {
+			auxMes = "Fev";
+		}
+		else if (this.mes == 3 ) {
+			auxMes = "Mar";
+		}
+		else if (this.mes == 4 ) {
+			auxMes = "Abr";
+		}
+		else if (this.mes == 5 ) {
+			auxMes = "Mai";
+		}
+		else if (this.mes == 6 ) {
+			auxMes = "Jun";
+		}
+		else if (this.mes == 7 ) {
+			auxMes = "Jul";
+		}
+		else if (this.mes == 8) {
+			auxMes = "Ago";
+		}
+		else if (this.mes == 9 ) {
+			auxMes = "Set";
+		}
+		else if (this.mes == 10) {
+			auxMes = "Out";
+		}
+		else if (this.mes == 11) {
+			auxMes = "Nov";
+		}
+		else if (this.mes == 12) {
+			auxMes = "Dez";
+		}
+		String FileName = "despesas_"+auxMes+"_"+this.strAno+".txt";
+
+
+        FileInputStream in = null;  //objeto que "lida" com o arquivo de entrada
+
+        try {
+
+            in = new FileInputStream(FileName); //tenta abrir o arquivo em modo leitura
+            //despesas.clear(); //Limpa buffer para evitar duplo cadastro no arquivo
+
+            byte[] conteudoArquivo = in.readAllBytes();
+            //Transformar o vetor em uma String!
+
+            String cadastro = "";
+            for (int i=0; i<conteudoArquivo.length; i++) {
+                cadastro += (char)conteudoArquivo[i];
+            }
+
+            String[] strMoradores = cadastro.split("\n");
+            for (String par : strMoradores) {
+                String[] str = par.split(";");
+		String aux1 = str[0];
+		String aux2 = str[1];
+		float f = Float.parseFloat(str[2]);
+                Despesa a = new Despesa(aux1,f,aux2);
+                despesas.add(a);
+            }
+        } catch (IOException e) {
+            // TODO: handle exception
+        }
+    }
 
 	public List<Despesa> getDespesas() {
 		return despesas;
