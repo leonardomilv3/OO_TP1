@@ -28,7 +28,9 @@ public class UI {
 					+ "3 - Cadastrar Subcategoria\n"
 					+ "4 - Cadastrar Despesa\n"
 					+ "5 - Cálculo da Contribuição\n"
-					+ "0 - Sair do programa";
+					+ "0 - Sair do programa"
+					+ "6 - Apagar Republica";
+	   
 		String Stropcao = JOptionPane.showInputDialog(menu);
 		opcao = Integer.parseInt(Stropcao);
 		return opcao;
@@ -55,6 +57,9 @@ public class UI {
 				break;
 			case 5:
 				ApresentarMenuContribuicao();
+				break;
+			case 6:
+				cadastroMoradores.apagarRep(); // Apaga todos os dados de moradores da república
 				break;
 			case 0: 
 				JOptionPane.showMessageDialog(null, " Obrigado por utilizar o programa! Volte Sempre!");
