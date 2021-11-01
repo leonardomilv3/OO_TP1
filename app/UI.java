@@ -85,16 +85,16 @@ public class UI {
 
 	private static void ApresentarMenuContribuicao(){ 
         int opcao = 0;
+		String dataMes = "------Mes------\n";
+		String dataAno = "------Ano------\n";
 		do { 
 			
 			opcao = escolhaOpcaoContribuicao();
 			
 			switch (opcao) {
 			case 1:
-				String dataMes = "------Mes------\n";
 				String StropcaoMes = JOptionPane.showInputDialog(dataMes);
 				int OpcMes = Integer.parseInt(StropcaoMes);
-				String dataAno = "------Ano------\n";
 				String StropcaoAno = JOptionPane.showInputDialog(dataAno);
 
 				cadastroDespesas.lerDespesas(OpcMes,StropcaoAno);
@@ -102,13 +102,11 @@ public class UI {
 				JOptionPane.showMessageDialog(null,  contIgual.calcularContribuicao(cadastroMoradores, cadastroDespesas)); // Teste do metodo calcular contribuicao ** 
 				break;
 			case 2: 
-				String dataMes = "------Mes------\n";
-				String StropcaoMes = JOptionPane.showInputDialog(dataMes);
-				int OpcMes = Integer.parseInt(StropcaoMes);
-				String dataAno = "------Ano------\n";
-				String StropcaoAno = JOptionPane.showInputDialog(dataAno);
+				String StropcaoMes2 = JOptionPane.showInputDialog(dataMes);
+				int OpcMes2 = Integer.parseInt(StropcaoMes2);
+				String StropcaoAno2 = JOptionPane.showInputDialog(dataAno);
 
-				cadastroDespesas.lerDespesas(OpcMes,StropcaoAno);
+				cadastroDespesas.lerDespesas(OpcMes2,StropcaoAno2);
 					
 				JOptionPane.showMessageDialog(null,  contProp.calcularContribuicao(cadastroMoradores, cadastroDespesas));
 				// cadastroDespesas.cadastrarCategoria();
@@ -121,5 +119,7 @@ public class UI {
 			}
 		} while (opcao !=0);
     }
+
+
 
 }

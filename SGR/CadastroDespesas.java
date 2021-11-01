@@ -1,6 +1,7 @@
 package SGR;
 
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
