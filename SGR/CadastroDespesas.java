@@ -159,7 +159,8 @@ public class CadastroDespesas implements Impressora {
 	}
 	
 	//Solução inicial para escrever despesas
-	public void escreveDespesas(){
+	@Override
+	public void escreve(){
 
 		String auxMes = null;
 		if(this.mes == 1 ){
@@ -200,7 +201,7 @@ public class CadastroDespesas implements Impressora {
 		}
 
 
-		String fileName = "despesas_"+auxMes+"_"+this.strAno+".txt";
+		String fileName = "despesas_"+ auxMes +"_"+this.strAno+".txt";
 
 
 		BufferedWriter buffer = null;
@@ -246,12 +247,6 @@ public class CadastroDespesas implements Impressora {
 
 	public void setAno(String ano) {
 		this.strAno = ano;
-	}
-
-	@Override
-	public boolean escreveTxt(String caminho) {
-		boolean escreveu = true;
-		return escreveu;
 	}
 
 }

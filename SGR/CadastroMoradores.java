@@ -91,7 +91,8 @@ public class CadastroMoradores implements Impressora {
 	}
 
 	// Gravando moradores em arquivo "Moradores.txt"
-	public void escreveMoradores() {
+	@Override
+	public void escreve() {
 
 		BufferedWriter buffer = null;
 		FileWriter out = null;
@@ -152,13 +153,5 @@ public class CadastroMoradores implements Impressora {
        		File file = new File( nomeArquivo );
         	file.delete();
     }
-	
-	
-
-	@Override
-	public boolean escreveTxt(String caminho) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }

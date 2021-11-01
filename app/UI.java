@@ -44,7 +44,7 @@ public class UI {
 			case 1:
 				cadastroMoradores.lerMoradores(); //Ler arquivo com dados de moradores antes de efetuar novo cadastro
 				cadastroMoradores.cadastrarMoradores();
-				cadastroMoradores.escreveMoradores(); //Adicionando novo morador ao arquivo "aluno.txt"
+				cadastroMoradores.escreve(); //Adicionando novo morador ao arquivo "aluno.txt"
 				break;
 			case 2: 
  				// cadastroDespesas.cadastrarCategoria();
@@ -54,7 +54,7 @@ public class UI {
 				break;
 			case 4:
 				cadastroDespesas.cadastrarDespesas();
-				cadastroDespesas.escreveDespesas();
+				cadastroDespesas.escreve();
 				break;
 			case 5:
 				ApresentarMenuContribuicao();
