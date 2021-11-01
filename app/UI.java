@@ -86,12 +86,30 @@ public class UI {
 	private static void ApresentarMenuContribuicao(){ 
         int opcao = 0;
 		do { 
+			
 			opcao = escolhaOpcaoContribuicao();
+			
 			switch (opcao) {
 			case 1:
+				String dataMes = "------Mes------\n";
+				String StropcaoMes = JOptionPane.showInputDialog(dataMes);
+				int OpcMes = Integer.parseInt(StropcaoMes);
+				String dataAno = "------Ano------\n";
+				String StropcaoAno = JOptionPane.showInputDialog(dataAno);
+
+				cadastroDespesas.lerDespesas(OpcMes,StropcaoAno);
+					
 				JOptionPane.showMessageDialog(null,  contIgual.calcularContribuicao(cadastroMoradores, cadastroDespesas)); // Teste do metodo calcular contribuicao ** 
 				break;
 			case 2: 
+				String dataMes = "------Mes------\n";
+				String StropcaoMes = JOptionPane.showInputDialog(dataMes);
+				int OpcMes = Integer.parseInt(StropcaoMes);
+				String dataAno = "------Ano------\n";
+				String StropcaoAno = JOptionPane.showInputDialog(dataAno);
+
+				cadastroDespesas.lerDespesas(OpcMes,StropcaoAno);
+					
 				JOptionPane.showMessageDialog(null,  contProp.calcularContribuicao(cadastroMoradores, cadastroDespesas));
 				// cadastroDespesas.cadastrarCategoria();
 				break;
