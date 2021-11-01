@@ -3,6 +3,7 @@ package app;
 import SGR.CadastroMoradores;
 import SGR.CadastroDespesas;
 import SGR.Igualitaria;
+import SGR.Proporcional;
 
 import javax.swing.JOptionPane;
 
