@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 public abstract class Contribuicao {
 	
 
-	public abstract String calcularContribuicao(CadastroMoradores moradores, CadastroDespesas despesas);
+	protected abstract String calcularContribuicao(CadastroMoradores moradores, CadastroDespesas despesas);
 
 	protected static String arredondar(double numero) {
 		DecimalFormat df = new DecimalFormat("0.00");
