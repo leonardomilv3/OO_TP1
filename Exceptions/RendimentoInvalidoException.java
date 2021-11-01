@@ -1,8 +1,9 @@
 package Exceptions;
 
+@SuppressWarnings("serial")
 public class RendimentoInvalidoException extends Exception {
 
-    public RendimentoInvalidoException(){
+	public RendimentoInvalidoException(){
         super();
     }
 

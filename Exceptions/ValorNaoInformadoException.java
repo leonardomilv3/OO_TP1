@@ -1,7 +1,8 @@
 package Exceptions;
 
-public class ValorNaoInformadoException extends Exception {
-	
+@SuppressWarnings("serial")
+public class ValorNaoInformadoException extends Exception {	
+
 	public ValorNaoInformadoException() {
 		super();
 	}
