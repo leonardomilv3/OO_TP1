@@ -160,69 +160,69 @@ public class CadastroDespesas implements Impressora {
 	
 	//Solução inicial para escrever despesas
 	public void escreveDespesas(){
-		
-	String auxMes;
-	if(this.mes == 1 ){
-		auxMes = "Jan";
-	}
-	else if (this.mes == 2 ) {
-		auxMes = "Fev";
-	}
-	else if (this.mes == 3 ) {
-		auxMes = "Mar";
-	}
-	else if (this.mes == 4 ) {
-		auxMes = "Abr";
-	}
-	else if (this.mes == 5 ) {
-		auxMes = "Mai";
-	}
-	else if (this.mes == 6 ) {
-		auxMes = "Jun";
-	}
-	else if (this.mes == 7 ) {
-		auxMes = "Jul";
-	}
-	else if (this.mes == 8) {
-		auxMes = "Ago";
-	}
-	else if (this.mes == 9 ) {
-		auxMes = "Set";
-	}
-	else if (this.mes == 10) {
-		auxMes = "Out";
-	}
-	else if (this.mes == 11) {
-		auxMes = "Nov";
-	}
-	else if (this.mes == 12) {
-		auxMes = "Dez";
-	}
+
+		String auxMes = null;
+		if(this.mes == 1 ){
+			auxMes = "Jan";
+		}
+		else if (this.mes == 2 ) {
+			auxMes = "Fev";
+		}
+		else if (this.mes == 3 ) {
+			auxMes = "Mar";
+		}
+		else if (this.mes == 4 ) {
+			auxMes = "Abr";
+		}
+		else if (this.mes == 5 ) {
+			auxMes = "Mai";
+		}
+		else if (this.mes == 6 ) {
+			auxMes = "Jun";
+		}
+		else if (this.mes == 7 ) {
+			auxMes = "Jul";
+		}
+		else if (this.mes == 8) {
+			auxMes = "Ago";
+		}
+		else if (this.mes == 9 ) {
+			auxMes = "Set";
+		}
+		else if (this.mes == 10) {
+			auxMes = "Out";
+		}
+		else if (this.mes == 11) {
+			auxMes = "Nov";
+		}
+		else if (this.mes == 12) {
+			auxMes = "Dez";
+		}
 
 
 		String fileName = "despesas_"+auxMes+"_"+this.strAno+".txt";
 
 
-        BufferedWriter buffer = null;
-        FileWriter out = null;
-        try {
-            out = new FileWriter(fileName);
-            buffer = new BufferedWriter(out);
+		BufferedWriter buffer = null;
+		FileWriter out = null;
+		try {
+			out = new FileWriter(fileName);
+			buffer = new BufferedWriter(out);
 
-            for (Despesa a : despesas) {
-                buffer.write(a.getDescricao().toString());
-                buffer.write(';');
-		buffer.write(a.getCategoria.toString());    
-                buffer.write(';');
-		String r = Float.toString(a.getValorDespesas());
-                buffer.write(r.toString());
-                buffer.write('\n');
-            }
-            buffer.close();
-        } catch (IOException e) {
-            // TODO: handle exception
-        }
-    }
+			for (Despesa a : despesas) {
+				buffer.write(a.getDescricao().toString());
+				buffer.write(';');
+				buffer.write(a.getCategoria().toString());
+				buffer.write(';');
+				String r = Float.toString(a.getValorDespesa());
+				buffer.write(r.toString());
+				buffer.write('\n');
+			}
+			buffer.close();
+		} catch (IOException e) {
+			// TODO: handle exception
+		}
+	}
 
 	public List<Despesa> getDespesas() {
 		return despesas;
