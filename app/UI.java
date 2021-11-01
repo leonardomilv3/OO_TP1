@@ -96,6 +96,7 @@ public class UI {
 				String StropcaoMes = JOptionPane.showInputDialog(dataMes);
 				int OpcMes = Integer.parseInt(StropcaoMes);
 				String StropcaoAno = JOptionPane.showInputDialog(dataAno);
+				cadastroMoradores.lerMoradores();
 				cadastroDespesas.despesas.clear();
 				cadastroDespesas.lerDespesas(OpcMes,StropcaoAno);
 					
@@ -105,6 +106,7 @@ public class UI {
 				String StropcaoMes2 = JOptionPane.showInputDialog(dataMes);
 				int OpcMes2 = Integer.parseInt(StropcaoMes2);
 				String StropcaoAno2 = JOptionPane.showInputDialog(dataAno);
+				cadastroMoradores.lerMoradores();
 				cadastroDespesas.despesas.clear();
 				cadastroDespesas.lerDespesas(OpcMes2,StropcaoAno2);
 					
