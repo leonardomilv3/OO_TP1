@@ -22,14 +22,14 @@ public class UI {
 
     private static int escolhaOpcao(){
 		int opcao;
-		String menu = "Sistema de Gerenciamento de República \n"
+		String menu = "Sistema de Gerenciamento de Republica \n"
 					+ "1 - Cadastrar Morador\n"
 					+ "2 - Cadastrar Categoria\n"
 					+ "3 - Cadastrar Subcategoria\n"
 					+ "4 - Cadastrar Despesa\n"
-					+ "5 - Cálculo da Contribuição\n"
-					+ "0 - Sair do programa\n"
-					+ "6 - Apagar Republica\n";
+					+ "5 - Calculo da Contribuicao\n"
+					+ "6 - Apagar Republica\n"
+					+ "0 - Sair do programa\n";
 	   
 		String Stropcao = JOptionPane.showInputDialog(menu);
 		opcao = Integer.parseInt(Stropcao);
@@ -66,7 +66,7 @@ public class UI {
 				JOptionPane.showMessageDialog(null, " Obrigado por utilizar o programa! Volte Sempre!");
 				break;
 			default:
-				JOptionPane.showMessageDialog(null, " Opção Inválida!!");
+				JOptionPane.showMessageDialog(null, " Opcao Invalida!!");
 				break;
 			}
 		} while (opcao != 0);
@@ -74,9 +74,9 @@ public class UI {
 
 	private static int escolhaOpcaoContribuicao() {
 		int opcao;
-		String menu = "------Contribuição------\n"
-					+ "1 - Contribuição Igualitária \n"
-					+ "2 - Contribuição Proporcional\n"
+		String menu = "------Contribuicao------\n"
+					+ "1 - Contribuicao Igualitaria \n"
+					+ "2 - Contribuicao Proporcional\n"
 					+ "0 - Sair";
 		String Stropcao = JOptionPane.showInputDialog(menu);
 		opcao = Integer.parseInt(Stropcao);
@@ -98,7 +98,7 @@ public class UI {
 			case 0:
 				break;
 			default:
-				JOptionPane.showMessageDialog(null, " Opção Inválida!!");
+				JOptionPane.showMessageDialog(null, " Opcao Invalida!!");
 				break;
 			}
 		} while (opcao !=0);

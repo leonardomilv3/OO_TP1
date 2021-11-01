@@ -52,7 +52,7 @@ public class CadastroMoradores implements Impressora {
 				JOptionPane.showMessageDialog(null, "ERRO! Por favor preencha todos os campos");
 			} catch (RendimentoInvalidoException e) {
 				do {
-					JOptionPane.showMessageDialog(null, "ERRO! Não é possível um rendimento negativo ou vazio!");
+					JOptionPane.showMessageDialog(null, "ERRO! Nao e possivel um rendimento negativo ou vazio!");
 					strRendimento = JOptionPane.showInputDialog("\n" + "Rendimento: ");
 					if (!strRendimento.isEmpty()) {
 						rendimento = Float.parseFloat(strRendimento);

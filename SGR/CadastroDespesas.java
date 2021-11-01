@@ -58,7 +58,7 @@ public class CadastroDespesas implements Impressora {
 			} catch (DataInvalidoException e) {
 				repetir = true;
 
-				String msg = "ERRO! Data inválida \n";
+				String msg = "ERRO! Data Invalida! \n";
 
 				JOptionPane.showMessageDialog(null, msg);
 				e.printStackTrace();
@@ -80,7 +80,7 @@ public class CadastroDespesas implements Impressora {
 			} catch (DescricaoNaoInformadaException e) {
 				repetir = true;
 
-				String msg = "ERRO! Descrição da despesa não informada \n";
+				String msg = "ERRO! Descricao da despesa nao informada \n";
 
 				JOptionPane.showMessageDialog(null, msg);
 				e.printStackTrace();
@@ -101,7 +101,7 @@ public class CadastroDespesas implements Impressora {
 			} catch (CategoriaNaoInformadaException e) {
 				repetir = true;
 
-				String msg = "ERRO! Categoria da despesa não informada \n";
+				String msg = "ERRO! Categoria da despesa nao informada \n";
 
 				JOptionPane.showMessageDialog(null, msg);
 				e.printStackTrace();
@@ -128,7 +128,7 @@ public class CadastroDespesas implements Impressora {
 			} catch (ValorNaoInformadoException e) {
 				repetir = true;
 
-				String msg = "ERRO! Valor da despesa não informado \n";
+				String msg = "ERRO! Valor da despesa nao informado \n";
 
 				JOptionPane.showMessageDialog(null, msg);
 				e.printStackTrace();
