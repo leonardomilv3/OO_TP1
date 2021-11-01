@@ -221,6 +221,7 @@ public class CadastroDespesas implements Impressora {
 				buffer.write('\n');
 			}
 			buffer.close();
+			despesas.clear();
 		} catch (IOException e) {
 			// TODO: handle exception
 		}
