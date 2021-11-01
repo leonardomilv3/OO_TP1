@@ -54,6 +54,7 @@ public class UI {
 				break;
 			case 4:
 				cadastroDespesas.cadastrarDespesas();
+				cadastroDespesas.escreveDespesas();
 				break;
 			case 5:
 				ApresentarMenuContribuicao();
