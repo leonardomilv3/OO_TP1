@@ -2,25 +2,35 @@ package SGR;
 
 public class Despesa {
 	
-	protected String descricao;
-    protected float valorDespesa;
-    protected String categoria;
+    private String descricao;
+    private String categoria;
+    private Float valorDespesa;
     
-    public Despesa(String descricao, float valorDespesa, String categoria) {
-		this.descricao = descricao;
-		this.valorDespesa = valorDespesa;
-		this.categoria = categoria;
-	}
+    public Despesa(String descricao, String categoria, Float valorDespesa) {
+        this.descricao = descricao;
+        this.categoria = categoria;
+        this.valorDespesa = valorDespesa;
+    }
+
+    @Override
+    public String toString() {
+        return "Despesa{" +
+                "descricao='" + descricao + '\'' +
+                ", categoria='" + categoria + '\'' +
+                ", valorDespesa=" + valorDespesa +
+                '}';
+    }
   
     public String getDescricao() {
         return descricao;
     }
 
-    public float getValorDespesa() {
-        return valorDespesa;
-    }
-
     public String getCategoria() {
         return categoria;
     }
+
+    public Float getValorDespesa() {
+        return valorDespesa;
+    }
 }
+
