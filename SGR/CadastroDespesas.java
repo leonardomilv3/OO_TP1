@@ -3,18 +3,22 @@ package SGR;
 import Exceptions.CadastrarSubcategoriaAntesDeCadastrarPeloMenosUmaCategoriaException;
 import Exceptions.CategoriaNaoInformadaException;
 import Exceptions.DataInvalidoException;
+import Exceptions.DescricaoNaoInformadaException;
+import Exceptions.ValorNaoInformadoException;
+import Exceptions.ValorNegativoException;
 
 import javax.swing.*;
 import java.util.LinkedList;
 import java.util.List;
+
+
 
 public class CadastroDespesas {
 
     List<CategoriaDespesa> listaCategoriasDespesas;
     List<SubCategoriaDespesa> listaSubCategoriasDespesas;
     List<Despesa> listaDespesas;
-    int month;
-    int year;
+
 
     public CadastroDespesas() {
         listaCategoriasDespesas = new LinkedList<CategoriaDespesa>();
@@ -105,12 +109,20 @@ public class CadastroDespesas {
 
     }
 
-    
+
+
     //TO-DO cadastrarDespesa
     public void cadastrarDespesa() {
 
         Boolean repetir = false;
-
+        String mes_Str = "";
+        int mes_Int = 0;
+        String ano_Str = "";
+        int ano_Int = 0;
+        String descricao = "";
+        String strValor = "";
+        float valor_float = 0;
+        String categoriaDespesa = "";
 
 
         do {
@@ -120,9 +132,9 @@ public class CadastroDespesas {
 
 
             try {
-                String mes_Str = (String)JOptionPane.showInputDialog(null, "Escolha o mes referente a despesa","Cadastrar Despesa", JOptionPane.QUESTION_MESSAGE, null, meses, meses[0]);
+                mes_Str = (String)JOptionPane.showInputDialog(null, "Escolha o mes referente a despesa","Cadastrar Despesa", JOptionPane.QUESTION_MESSAGE, null, meses, meses[0]);
 
-                int mes_Int;
+
 
                 if (mes_Str.isEmpty()) {
                     throw new DataInvalidoException();
@@ -134,13 +146,14 @@ public class CadastroDespesas {
                     throw new DataInvalidoException();
                 }
 
-                String ano_Str = JOptionPane.showInputDialog("Informe o ano da Despesa. \nExemplo: 2021 \n");
+                ano_Str = JOptionPane.showInputDialog("Informe o ano da Despesa. \nExemplo: 2021 \n");
 
                 if (ano_Str.isEmpty()) {
                     throw new DataInvalidoException();
+                } else {
+                    ano_Int = Integer.parseInt(ano_Str);
                 }
 
-                System.out.println("Mes:" + mes_Str + " Ano: " +  ano_Str);
 
 
             } catch (DataInvalidoException e) {
@@ -154,6 +167,7 @@ public class CadastroDespesas {
             }
         } while (repetir);
 
+        //////////////////////      //////////////////////
 
         do {
             repetir = false;
@@ -176,27 +190,108 @@ public class CadastroDespesas {
 
             }
 
+            try {
+
+                if (listaCategoriasDespesas.isEmpty()) {
+                    throw new CadastrarSubcategoriaAntesDeCadastrarPeloMenosUmaCategoriaException();
 
 
-            String testeCategoria = (String)JOptionPane.showInputDialog(null, "Escolha a categoria ou subcategoria referente a despesa","Cadastrar Despesa", JOptionPane.QUESTION_MESSAGE, null, listaCategoriaESubcategorias.toArray(), listaCategoriaESubcategorias.get(0));
+                } else  {
+                    categoriaDespesa = (String)JOptionPane.showInputDialog(null, "Escolha a categoria ou subcategoria referente a despesa","Cadastrar Despesa", JOptionPane.QUESTION_MESSAGE, null, listaCategoriaESubcategorias.toArray(), listaCategoriaESubcategorias.get(0));
 
-            System.out.println("testeCategoria => " + testeCategoria);
 
+                }
+
+            } catch (CadastrarSubcategoriaAntesDeCadastrarPeloMenosUmaCategoriaException e) {
+
+                String msg = "ERRO! Antes de cadastrar uma despesa, voce precisa cadastrar pelo menos uma categoria. \n";
+
+                JOptionPane.showMessageDialog(null, msg);
+                e.printStackTrace();
+
+            }
 
         } while (repetir);
 
 
+        do {
+            repetir = false;
 
+            try {
+                descricao = JOptionPane.showInputDialog("Descricao da despesa: " + "\n");
+
+                if (descricao.isEmpty()) {
+                    throw new DescricaoNaoInformadaException();
+                }
+
+            } catch (DescricaoNaoInformadaException e) {
+                repetir = true;
+
+                String msg = "ERRO! Descricao da despesa nao informada \n";
+
+                JOptionPane.showMessageDialog(null, msg);
+                e.printStackTrace();
+
+            }
+        } while (repetir);
+
+
+        do {
+            repetir = false;
+
+            try {
+                strValor = JOptionPane.showInputDialog("Valor: " + "\n");
+
+
+
+                if (strValor.isEmpty()) {
+                    throw new ValorNaoInformadoException();
+                } else {
+                    valor_float = Float.parseFloat(strValor);
+                }
+
+                if (valor_float < 0) {
+                    throw new ValorNegativoException();
+                }
+
+            } catch (ValorNaoInformadoException e) {
+                repetir = true;
+
+                String msg = "ERRO! Valor da despesa nao informado \n";
+
+                JOptionPane.showMessageDialog(null, msg);
+                e.printStackTrace();
+
+            } catch (ValorNegativoException e) {
+                repetir = true;
+
+                String msg = "ERRO! Valor da despesa negativo \n";
+
+                JOptionPane.showMessageDialog(null, msg);
+                e.printStackTrace();
+            }
+        } while (repetir);
+
+
+        // Instanciando Morador
+        Despesa despesa = new Despesa(descricao, categoriaDespesa, valor_float, mes_Int, ano_Int);
+
+        boolean respostaC = listaDespesas.add(despesa);
+        if (respostaC) {
+            JOptionPane.showMessageDialog(null, "Despesa cadastrada com sucesso!");
+        }
+
+
+        System.out.println("Terminou cadastrarDespesa: listaDespesas => " + listaDespesas);
 
         return;
 
     }
 
-
-
-
-
-
-
+    
 
 }
+
+
+
+

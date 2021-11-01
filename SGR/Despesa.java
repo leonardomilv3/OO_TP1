@@ -1,15 +1,18 @@
 package SGR;
 
 public class Despesa {
-	
     private String descricao;
     private String categoria;
     private Float valorDespesa;
-    
-    public Despesa(String descricao, String categoria, Float valorDespesa) {
+    private int month;
+    private int year;
+
+    public Despesa(String descricao, String categoria, Float valorDespesa, int month, int year) {
         this.descricao = descricao;
         this.categoria = categoria;
         this.valorDespesa = valorDespesa;
+        this.month = month;
+        this.year = year;
     }
 
     @Override
@@ -18,9 +21,11 @@ public class Despesa {
                 "descricao='" + descricao + '\'' +
                 ", categoria='" + categoria + '\'' +
                 ", valorDespesa=" + valorDespesa +
+                ", month=" + month +
+                ", year=" + year +
                 '}';
     }
-  
+
     public String getDescricao() {
         return descricao;
     }
@@ -32,5 +37,14 @@ public class Despesa {
     public Float getValorDespesa() {
         return valorDespesa;
     }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
 }
+
 
