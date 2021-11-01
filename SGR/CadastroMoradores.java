@@ -145,6 +145,13 @@ public class CadastroMoradores implements Impressora {
     }
 	
 	
+	
+	public void apagarRep(){
+       		File file = new File( nomeArquivo );
+        	file.delete();
+    }
+	
+	
 
 	@Override
 	public boolean escreveTxt(String caminho) {
