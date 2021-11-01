@@ -18,7 +18,7 @@ Trabalho Prático de Orientação a Objetos
 
 ## Uso da Interface Impressora
 
-Na interface impressora foi encapsulada um metodo escreveTxt() para realizar as funcionalidades de criação e escrita dos arquivos que persistem os dados dos moradores e das despesas, as classes CadastroDespesa e CadastroMorador implementam esse método.
+Na interface impressora foi encapsulada um metodo "escreveTxt()" para realizar as funcionalidades de criação e escrita dos arquivos que persistem os dados dos moradores e das despesas, as classes "CadastroDespesa" e "CadastroMorador" implementam esse método.
 
 ## CÁLCULO DAS CONTRIBUIÇÕES
 
