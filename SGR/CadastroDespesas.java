@@ -15,7 +15,7 @@ import Exceptions.ValorNegativoException;
 
 public class CadastroDespesas implements Impressora {
 
-	private List<Despesa> despesas;
+	public List<Despesa> despesas;
 	protected int mes;
 	protected String strAno;
 	protected String nomeArquivo = null;
