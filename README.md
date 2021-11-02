@@ -34,4 +34,6 @@ A classe User Interface (UI), situada no pacote app, possuí associação única
 
 Todos os dados referentes à republica (registro de moradores e registro de despesas) foram persistidos em arquivos de texto e utilizados durante toda a execução do programa. Foram utilizados métodos como escreve() situados dentro das classes CadastroDespesa e CadastroMorador e métodos para leitura dos arquivos
 
+## Cadastro de Moradores
 
+A classe “CadastroMoradores” é a responsável por criar uma lista de moradores. Sendo ela capaz de tratar as exceções: sem categoria (CategoriaNaoInformadaException), sem descrição (DescricaoNaoInformadaException), sem Valor (ValorNaoInformadoException) entre outras. A classe “CadastroMoradores” implementa a interface "Impressora", logo essa classe necessita possuir o método void  “escreve”, ele é o responsável por escrever os moradores em um arquivo .txt. Essa classe também possui o método “apagarRep”, que permite apagar o arquivo com os dados dos moradores, caso seja pedido pelo usuário, além de ler o arquivo para poder continuar com com os dados que o usuário já teria computado. Calcula também o rendimento total dos moradores, para que outras classes que necessitem desse dado os tenha por meio do método “getRendimentoTotal”.
