@@ -1,31 +1,40 @@
 package SGR;
 
 public class Morador {
-    private String nome;
-    private String email;
-    private float rendimento;
+  
+	private String nome;
+	private String email;
+	private float rendimento;
 
-    public String getNome() {
-        return nome;
-    }
+	public Morador(String nome, String email, float rendimento) {
+		this.nome = nome;
+		this.email = email;
+		this.rendimento = rendimento;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public float getRendimento() {
-        return rendimento;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setRendimento(float rendimento) {
-        this.rendimento = rendimento;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public float getRendimento() {
+		return rendimento;
+	}
+
+	public void setRendimento(float rendimento) {
+		this.rendimento = rendimento;
+	}
+
 }
