@@ -47,13 +47,13 @@ public class UI {
 				cadastroMoradores.escreve(); //Adicionando novo morador ao arquivo "aluno.txt"
 				break;
 			case 2: 
- 				// cadastroDespesas.cadastrarCategoria();
+				cadastroDespesas.cadastrarCategoria();
 				break;
-			case 3: 
-                //  cadastroDespesas.cadastrarSubcategoria();
+			case 3:
+				cadastroDespesas.cadastrarSubcategoria();
 				break;
 			case 4:
-				cadastroDespesas.cadastrarDespesas();
+				cadastroDespesas.cadastrarDespesa();
 				cadastroDespesas.escreve();
 				break;
 			case 5:
@@ -84,10 +84,11 @@ public class UI {
 	}
 
 	private static void ApresentarMenuContribuicao(){ 
-        int opcao = 0, OpcMes;
+        int opcao = 0, OpcMes =0, OpcAno=0;
 		String dataMes = "------Mes------\n";
 		String dataAno = "------Ano------\n";
 		String StropcaoMes, StropcaoAno;
+
 		do { 
 			
 			opcao = escolhaOpcaoContribuicao();
@@ -97,9 +98,10 @@ public class UI {
 				StropcaoMes = JOptionPane.showInputDialog(dataMes);
 				OpcMes = Integer.parseInt(StropcaoMes);
 				StropcaoAno = JOptionPane.showInputDialog(dataAno);
+				OpcAno = Integer.parseInt(StropcaoAno);
 				cadastroMoradores.lerMoradores();
-				cadastroDespesas.despesas.clear();
-				cadastroDespesas.lerDespesas(OpcMes,StropcaoAno);
+				cadastroDespesas.LimpaLista();
+				cadastroDespesas.lerDespesas(OpcMes,OpcAno);
 					
 				JOptionPane.showMessageDialog(null,  contIgual.calcularContribuicao(cadastroMoradores, cadastroDespesas)); // Teste do metodo calcular contribuicao ** 
 				break;
@@ -107,12 +109,12 @@ public class UI {
 				StropcaoMes = JOptionPane.showInputDialog(dataMes);
 				OpcMes = Integer.parseInt(StropcaoMes);
 				StropcaoAno = JOptionPane.showInputDialog(dataAno);
+				OpcAno = Integer.parseInt(StropcaoAno);
 				cadastroMoradores.lerMoradores();				
-				cadastroDespesas.despesas.clear();
-				cadastroDespesas.lerDespesas(OpcMes,StropcaoAno);
-					
+				cadastroDespesas.LimpaLista();
+				cadastroDespesas.lerDespesas(OpcMes,OpcAno);
 				JOptionPane.showMessageDialog(null,  contProp.calcularContribuicao(cadastroMoradores, cadastroDespesas));
-				// cadastroDespesas.cadastrarCategoria();
+				//cadastroDespesas.cadastrarCategoria();
 				break;
 			case 0:
 				break;
@@ -123,6 +125,5 @@ public class UI {
 		} while (opcao !=0);
     }
 
-
-
 }
+
