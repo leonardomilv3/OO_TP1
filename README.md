@@ -37,3 +37,16 @@ Todos os dados referentes à republica (registro de moradores e registro de desp
 ## Cadastro de Moradores
 
 A classe “CadastroMoradores” é a responsável por criar uma lista de moradores. Sendo ela capaz de tratar as exceções: sem categoria (CategoriaNaoInformadaException), sem descrição (DescricaoNaoInformadaException), sem Valor (ValorNaoInformadoException) entre outras. A classe “CadastroMoradores” implementa a interface "Impressora", logo essa classe necessita possuir o método void  “escreve”, ele é o responsável por escrever os moradores em um arquivo .txt. Essa classe também possui o método “apagarRep”, que permite apagar o arquivo com os dados dos moradores, caso seja pedido pelo usuário, além de ler o arquivo para poder continuar com com os dados que o usuário já teria computado. Calcula também o rendimento total dos moradores, para que outras classes que necessitem desse dado os tenha por meio do método “getRendimentoTotal”.
+
+## O cadastro das despesas
+
+A classe (CadastroDespesas) é responsável por criar três lista encadeadas que serão responsáveis por toda a implementação do cadastro de despesas da república. Para isso, dentro dessa classe foram criados três métodos:
+cadastrarCategoria
+cadatrarSubcategoria
+cadastrarDespesas
+
+O sistema segue essa ordem, ou seja, não é possível cadastrar uma despesa sem antes cadastrar uma categoria de despesa, da mesma forma, não é possível cadastrar uma subcategoria sem antes cadastrar uma categoria. 
+
+Utilizamos de vários recursos da Orientação a Objetos, por exemplo, a classe implementa a interface impressora para poder persistir os dados em arquivos Txt. 
+
+Para diminuir a chance de erro do usuário, utilizamos o JOptionPane com Drop Down List, um ótimo exemplo dessa implementação está no cadastro de subcategoria, pois o usuário terá que selecionar uma categoria da lista antes de poder cadastrar uma subcategoria dela (Visualizar linha 353 da classe CadastroDespesas).
