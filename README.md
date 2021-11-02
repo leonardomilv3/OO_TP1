@@ -30,3 +30,8 @@ Em “Igualitaria”, é apresentado o total das despesas, junto com o resultado
 
 A classe User Interface (UI), situada no pacote app, possuí associação única  e escopo estático com as classes, situadas no pacote Sistema de Gerenciamento de República (SGR),  CadastroMoradores,  CadastroDespesas, Igualitaria e Porporcional. Sendo assim, o objetivo principal da UI é tratar da interação com o usuário através de um menu de opções de um SGR e tudo isso ocorre a partir do método ApresentarMenu(). Em cada opção do menu será executado um conjunto de métodos de uma classe associada à UI e o método sendo excutado dentro da classe, praticando, então, o encapsulamento. 
 
+## Registro de dados em arquivo
+
+Todos os dados referentes à republica (registro de moradores e registro de despesas) foram persistidos em arquivos de texto e utilizados durante toda a execução do programa. Foram utilizados métodos como escreve() situados dentro das classes CadastroDespesa e CadastroMorador e métodos para leitura dos arquivos
+
+
