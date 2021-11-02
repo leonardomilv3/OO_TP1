@@ -54,6 +54,6 @@ Utilizamos de vários recursos da Orientação a Objetos, por exemplo, a classe 
 Para diminuir a chance de erro do usuário, utilizamos o JOptionPane com Drop Down List, um ótimo exemplo dessa implementação está no cadastro de subcategoria, pois o usuário terá que selecionar uma categoria da lista antes de poder cadastrar uma subcategoria dela (Visualizar linha 353 da classe CadastroDespesas).
 
 ## UML
-Link para o digrama UML: [somente visualizar](https://app.diagrams.net/#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fleonardomilv3%2FOO_TP1%2Fmain%2FPrototipo-UML-OO-v4(Leonardo%20Miranda%2C%20Matheus%2C%20Vinicius).drawio).
+Link para o digrama UML: [somente visualizar](https://drive.google.com/file/d/1OaB-kX9WJt7fJtqTJK44727gU-VlxuPL/view?usp=sharing).
 <!-- ; [editar](). -->
 
