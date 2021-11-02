@@ -1,5 +1,6 @@
 package SGR;
 
+
 import Exceptions.*;
 import app.UI;
 
@@ -440,11 +441,13 @@ public class CadastroDespesas implements Impressora {
 
     public List<Despesa> getDespesas() {
         return listaDespesas;
+
     }
 
     public float getValorTotal() {
         return valorTotal();
     }
+
 
 }
 

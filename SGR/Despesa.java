@@ -50,5 +50,6 @@ public class Despesa {
 
     public int getYear() {
         return year;
+
     }
 }

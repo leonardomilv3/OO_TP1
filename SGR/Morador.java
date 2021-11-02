@@ -1,6 +1,7 @@
 package SGR;
 
 public class Morador {
+  
 	private String nome;
 	private String email;
 	private float rendimento;
@@ -35,4 +36,5 @@ public class Morador {
 	public void setRendimento(float rendimento) {
 		this.rendimento = rendimento;
 	}
+
 }

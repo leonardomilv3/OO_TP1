@@ -1,5 +1,6 @@
 package SGR;
 
+
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
@@ -13,4 +14,5 @@ public abstract class Contribuicao {
 		df.setRoundingMode(RoundingMode.HALF_UP);
 		return df.format(numero);
 	}
+
 }
